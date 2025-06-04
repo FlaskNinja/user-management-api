@@ -125,3 +125,92 @@ Express.js
 
 UUID for unique ID generation
 
+Example (cURL):
+
+curl http://localhost:5000/users
+🌐 API Documentation
+All endpoints are prefixed with /users.
+
+📥 POST /users
+Create a user.
+
+Request Body:
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "age": 25
+}
+Success:
+
+201 Created
+
+{
+  "message": "User with the username John added successfully"
+}
+Error (400):
+
+{ "error": "Missing required fields" }
+📤 GET /users
+Get all users.
+
+Success:
+
+200 OK → List of users
+
+📤 GET /users/:id
+Get a specific user by ID.
+
+Success:
+
+200 OK
+
+Error (404):
+
+{ "error": "User not found" }
+❌ DELETE /users/:id
+Delete a user by ID.
+
+Success:
+
+200 OK
+
+{ "message": "User with ID :id deleted successfully" }
+Error (404):
+
+{ "error": "User not found" }
+🔁 PATCH /users/:id
+Update part of a user’s info.
+
+Request Body Example:
+
+{
+  "age": 30
+}
+Success:
+
+200 OK
+
+Error (404):
+
+{ "error": "User not found" }
+🔁 PUT /users/:id
+Override all of a user's data.
+
+Request Body:
+
+{
+  "firstName": "Jane",
+  "lastName": "Doe",
+  "age": 32
+}
+Success:
+
+200 OK
+
+Error (400):
+
+{ "msg": "No firstName" }
+Error (404):
+
+{ "error": "User not found" }
